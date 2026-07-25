@@ -1,12 +1,12 @@
 // 正の整数の値を格納する機能を提供する`Wrapper`です。
 // 他の型でもラップできるように修正してください。
-struct Wrapper {
-  value: u32,
+struct Wrapper<T> {
+    value: T,
 }
 
 // TODO: 構造体の実装を、ラップされた値に対してジェネリックになるように適合させる。
-impl <T> Wrapper<T>  {
-    fn new (value: T) -> Self {
+impl<T> Wrapper<T> {
+    fn new(value: T) -> Self {
         Wrapper { value }
     }
 }

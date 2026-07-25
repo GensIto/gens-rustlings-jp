@@ -6,7 +6,7 @@ fn main() {
     // TODO: `Vec<T>`の型の注釈を追加することでコンパイルエラーを修正してください。
     // `T`の型を`u8`や`i8`を内包するようにしてください。
 
-    let mut numbers = Vec::new();
+    let mut numbers = Vec::<i32>::new();
 
     // これ以降は変更しなくてください。
     let n1: u8 = 42;
