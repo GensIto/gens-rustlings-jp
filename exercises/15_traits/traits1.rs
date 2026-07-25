@@ -6,6 +6,9 @@ trait AppendBar {
 
 impl AppendBar for String {
     // TODO:`AppendBar`トレイトを`String`型に移植してください。
+    fn append_bar(self) -> Self {
+        self + "Bar"
+    }
 }
 
 fn main() {
