@@ -39,9 +39,13 @@ impl PositiveNonzeroInteger {
 
 // TODO: 返り値の型として`Result<(), Box<dyn ???>>`と記載してください。
 // これによりCreationError::NegativeとCreationError::Zeroに対応できます。
-fn main() {
+fn main() -> Result<(), Box<dyn Error>> {
     let pretend_user_input = "42";
     let x: i64 = pretend_user_input.parse()?;
     println!("output={:?}", PositiveNonzeroInteger::new(x)?);
     Ok(())
 }
+
+// 今のBox<dyn Error>の理解
+// Boxなdyn=dynamicなErrorを詰め込む
+// CreationErrorとか.parse()?とか実行時に決まるエラーってイメージ
