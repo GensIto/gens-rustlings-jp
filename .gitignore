@@ -4,3 +4,4 @@ target/
 .vscode/
 !.vscode/extensions.json
 create_info_data/
+.DS_Store
