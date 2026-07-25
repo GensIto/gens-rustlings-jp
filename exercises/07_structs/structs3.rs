@@ -24,13 +24,15 @@ impl Package {
     }
 
     // TODO: 適切な返り値の型を記載してください。
-    fn is_international(&self) {
+    fn is_international(&self) -> bool {
         // TODO: 「荷物が国際便かどうか」判別するときに使うテストを読んで処理を記載してください。
+        self.sender_country != self.recipient_country
     }
 
     // TODO: 適切な返り値の型を記載してください。
-    fn get_fees(&self, cents_per_gram: u32) {
+    fn get_fees(&self, cents_per_gram: u32) -> u32 {
         // TODO: 荷物の宅配料金を記載してください。
+        self.weight_in_grams * cents_per_gram
     }
 }
 

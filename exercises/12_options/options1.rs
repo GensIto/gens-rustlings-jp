@@ -3,6 +3,13 @@
 // 23時より遅い時間の場合には`None`を返してください。
 fn maybe_icecream(hour_of_day: u16) -> Option<u16> {
     // TODO: 関数の中身を埋めてください。
+    if hour_of_day > 23 {
+        None
+    } else if hour_of_day >= 22 {
+        Some(0)
+    } else {
+        Some(5)   
+    }
 }
 
 fn main() {
@@ -16,7 +23,7 @@ mod tests {
     #[test]
     fn raw_value() {
         // TODO: テストの一部を修正して、オプション型から数値を取得できるようにしてください。
-        let icecreams = maybe_icecream(12);
+        let icecreams = maybe_icecream(12).unwrap();
 
         assert_eq!(icecreams, 5); // ここの値は変えないでください。
     }

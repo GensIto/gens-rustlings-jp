@@ -2,13 +2,18 @@
 fn foo_if_fizz(fizzish: &str) -> &str {
     if fizzish == "fizz" {
         "foo"
+    } else if fizzish == "fuzz" {
+        "bar"
     } else {
-        1
+        "baz"
     }
 }
 
 fn main() {
     // この行でfoo_if_fizz関数のテストができます。
+    println!("{}", foo_if_fizz("fizz"));
+    println!("{}", foo_if_fizz("fuzz"));
+    println!("{}", foo_if_fizz("hey"));
 }
 
 // TODO: 以下のテストを読んで挙動を理解してください。

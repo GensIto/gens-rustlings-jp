@@ -1,14 +1,17 @@
 fn trim_me(input: &str) -> &str {
     // TODO: 文字列の前後の空白を取り除いてください。
+    input.trim()
 }
 
 fn compose_me(input: &str) -> String {
     // TODO: 文字列の末尾に" world!"を追加してください。
     // いくつかの記載方法があります。
+    input.to_owned() + " world!"
 }
 
 fn replace_me(input: &str) -> String {
     // TODO: "cars"という文字列を"balloons"に置換してください。
+    input.replace("cars", "balloons")
 }
 
 fn main() {

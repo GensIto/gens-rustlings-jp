@@ -8,7 +8,7 @@ fn main() {
 
     // TODO: `is_evening`変数を`if`よりも前に実装してください。
     // `is_evening`変数は`is_morning`変数と真逆のBooleans型にしてください。
-    // let …
+    let is_evening = !is_morning;
     if is_evening {
         println!("Good evening!");
     }

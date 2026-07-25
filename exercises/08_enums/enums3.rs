@@ -5,6 +5,11 @@ struct Point {
 
 enum Message {
     // TODO: 以下で使う列挙子を記載してください。
+    Resize {width: u64, height: u64 },
+    Move(Point),
+    Echo(String),
+    ChangeColor(u8,u8,u8),
+    Quit
 }
 
 struct State {
@@ -41,6 +46,13 @@ impl State {
 
     fn process(&mut self, message: Message) {
         // TODO: 上記で定義したメソッドを使って異なるMessage列挙型に対するmatch処理を実装してください。
+        match message {
+            Message::Resize {width: w, height: h} => self.resize(w,h),
+            Message::Move(p)  => self.move_position(p),
+            Message::Echo(s) => self.echo(s),
+            Message::ChangeColor(r,g,b) => self.change_color(r,g,b),
+            Message::Quit => self.quit(),
+        }
     }
 }
 

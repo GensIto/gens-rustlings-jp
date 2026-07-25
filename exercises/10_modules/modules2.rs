@@ -3,8 +3,8 @@
 #[allow(dead_code)]
 mod delicious_snacks {
     // TODO: 以下の`use`構文を修正後に追加してください。
-    // use self::fruits::PEAR as ???;
-    // use self::veggies::CUCUMBER as ???;
+    pub use self::fruits::PEAR as fruit;
+    pub use self::veggies::CUCUMBER as veggie;
 
     mod fruits {
         pub const PEAR: &str = "Pear";
@@ -16,6 +16,7 @@ mod delicious_snacks {
         pub const CARROT: &str = "Carrot";
     }
 }
+
 
 fn main() {
     println!(

@@ -15,10 +15,17 @@ fn total_cost(item_quantity: &str) -> Result<i32, ParseIntError> {
     let cost_per_item = 5;
 
     // TODO: エラーを上記の記載した条件で処理してください。
-    // 
-    let qty = item_quantity.parse::<i32>();
+    //
 
+    // 今回は単純なエラーハンドリングなので?が最適
+    let qty = item_quantity.parse::<i32>()?;
     Ok(qty * cost_per_item + processing_fee)
+
+    // もし要件が日本語で返して欲しいとかはmatchがいいかも
+    // match qty {
+    //     Ok(qty) => Ok(qty * cost_per_item + processing_fee),
+    //     Err(e) => Err(e),
+    // }
 }
 
 fn main() {

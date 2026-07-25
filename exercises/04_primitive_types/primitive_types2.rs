@@ -13,7 +13,7 @@ fn main() {
 
     // TODO: 上記の例のように`your_character`変数を定義し、あなたの好きな文字を入れてください。
     // 文字(一文字)や特殊文字、異言語の文字や絵文字も試してみてください。
-    // let your_character = '';
+    let your_character = '1';
 
     if your_character.is_alphabetic() {
         println!("Alphabetical!");

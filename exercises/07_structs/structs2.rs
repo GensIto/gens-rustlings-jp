@@ -35,7 +35,11 @@ mod tests {
 
         // TODO: 以下のテストが通るように
         // 構造体更新記法やorder_template変数を使ってあなたのオーダーを作成してください。
-        // let your_order =
+        let your_order = Order {
+            name: String::from("Hacker in Rust"),
+            count: 1,
+            ..order_template
+        };
 
         assert_eq!(your_order.name, "Hacker in Rust");
         assert_eq!(your_order.year, order_template.year);

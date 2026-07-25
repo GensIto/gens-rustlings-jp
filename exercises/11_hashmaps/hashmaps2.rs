@@ -24,6 +24,7 @@ fn fruit_basket(basket: &mut HashMap<Fruit, u32>) {
 
     for fruit in fruit_kinds {
         // TODO: まだハッシュマップに格納されていないフルーツを追加してください(既にあるフルーツは追加してはいけません！)
+        basket.entry(fruit).or_insert(1);
     }
 }
 

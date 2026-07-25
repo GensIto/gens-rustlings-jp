@@ -6,7 +6,7 @@ fn is_even(num: i64) -> bool {
 }
 
 // TODO: 関数の入出力の記載内容を修正してください。
-fn sale_price(price: i64) -> {
+fn sale_price(price: i64) -> i64 {
     if is_even(price) {
         price - 10
     } else {

@@ -6,12 +6,14 @@ use std::collections::HashMap;
 
 fn fruit_basket() -> HashMap<String, u32> {
     // TODO: ハッシュマップを定義してください。
-    // let mut basket =
+    let mut basket: HashMap<String, u32> = HashMap::new();
 
     // 2つのバナナが既にハッシュマップに追加されています。 :)
     basket.insert(String::from("banana"), 2);
 
     // TODO: さらに果物を追加してください。
+    basket.insert(String::from("apple"), 1);
+    basket.insert(String::from("strawberry"), 3);
 
     basket
 }

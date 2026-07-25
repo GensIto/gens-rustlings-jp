@@ -25,6 +25,13 @@ fn build_scores_table(results: &str) -> HashMap<&str, TeamScores> {
 
         // TODO: スコアテーブルに引数resultsから取得したデータを格納しましょう。
         // チーム1の取得点はチーム2の失点であることに留意しましょう。
+        let team_1: &mut TeamScores = scores.entry(team_1_name).or_default();
+        team_1.goals_scored += team_1_score;
+        team_1.goals_conceded += team_2_score;
+        
+        let team_2: &mut TeamScores = scores.entry(team_2_name).or_default();
+        team_2.goals_scored += team_2_score;
+        team_2.goals_conceded += team_1_score;
     }
 
     scores

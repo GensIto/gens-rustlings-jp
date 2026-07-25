@@ -9,6 +9,14 @@ struct Point {
 #[derive(Debug)]
 enum Message {
     // TODO: 以下で使う異なる列挙子を定義してください。
+    Resize {
+        width: u64,
+        height: u64,
+    },
+    Move(Point),
+    Echo(String),
+    ChangeColor(u64,u64,u64),
+    Quit
 }
 
 impl Message {

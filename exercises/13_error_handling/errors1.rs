@@ -2,12 +2,12 @@
 // ここで問題が生じた際に単純に`None`を返す代わりに、その問題について説明する方が好ましいです。
 // 幸いなことに、Rustにはエラーの状態について説明できるOption型に似た構造体があります。
 // 関数の返り値を`Option`型から`Result`型に変更するしてください。
-fn generate_nametag_text(name: String) -> Option<String> {
+fn generate_nametag_text(name: String) -> Result<String, String> {
     if name.is_empty() {
         // Emptyに命名をすることはできません。
-        None
+        Err("Empty names aren't allowed".to_string())
     } else {
-        Some(format!("Hi! My name is {name}"))
+        Ok(format!("Hi! My name is {name}"))
     }
 }
 
