@@ -8,18 +8,18 @@
 // `ReportCard`構造体で必要な変更を行い、impl句で数値での成績に加えて、アルファベットもサポートするように修正してください。
 
 // TODO: 仕様に合うように構造体を変更してください。
-struct ReportCard {
-    grade: f32,
+struct ReportCard<T> {
+    grade: T,
     student_name: String,
     student_age: u8,
 }
 
 // TODO: 仕様に合うようにimpl内を変更してください。
-impl ReportCard {
+impl<T: std::fmt::Display> ReportCard<T> {
     fn print(&self) -> String {
         format!(
             "{} ({}) - achieved a grade of {}",
-            &self.student_name, &self.student_age, &self.grade,
+            self.student_name, self.student_age, self.grade,
         )
     }
 }
