@@ -4,8 +4,10 @@ trait Licensed {
     // TODO: `licensing_info`というデフォルトの移植を追加してください。
     // これにより下記に記す二つの構造体のような移植が関数を繰り返すことなくデフォルトの振る舞いとしてシェアできるようになります。
     // デフォルトのライセンス情報は"Default license"という文字列としてください。
-
-    fn licensing_info(&self) -> String;
+    // https://doc.rust-jp.rs/book-ja/ch10-02-traits.html#%E3%83%87%E3%83%95%E3%82%A9%E3%83%AB%E3%83%88%E5%AE%9F%E8%A3%85
+    fn licensing_info(&self) -> String {
+        String::from("Default license")
+    }
 }
 
 struct SomeSoftware {

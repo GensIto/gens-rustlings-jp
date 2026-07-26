@@ -10,8 +10,14 @@ struct OtherSoftware;
 impl Licensed for SomeSoftware {}
 impl Licensed for OtherSoftware {}
 
-// TODO: この関数の入出力を変更するだけでコンパイルエラーを修正してください。
-fn compare_license_types(software1: ???, software2: ???) -> bool {
+// 名前付きジェネリクス版
+// メリット: where / 戻り値で型名を再利用しやすい。複数境界や型同士の関係を書きやすい。らしい
+// デメリット: 境界だけなら署名がやや冗長。
+fn compare_license_types<T: Licensed, S: Licensed>(software1: T, software2: S) -> bool {
+    // 同等の impl Trait 版（短く書けるが、匿名型のため型名の再利用はしにくい）らしい
+    // fn compare_license_types(software1: impl Licensed, software2: impl Licensed) -> bool
+    // ↓とのこと
+    // 良い設計の本体はトレイト境界そのもので、構文の差は読みやすさの話です。引き継ぎを最優先するなら、単純なうちは impl Trait、複雑さが出たら名前付きに上げる、が現実的です。
     software1.licensing_info() == software2.licensing_info()
 }
 
