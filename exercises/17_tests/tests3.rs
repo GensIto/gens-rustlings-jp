@@ -28,18 +28,20 @@ mod tests {
     fn correct_width_and_height() {
         // TODO: このテストではコンストラクタをパスしたサイズの長方形かどうかを確認しましょう。
         let rect = Rectangle::new(10, 20);
-        assert_eq!(todo!(), 10); // 横幅を確認
-        assert_eq!(todo!(), 20); // 高さを確認
+        assert_eq!(rect.width, 10); // 横幅を確認
+        assert_eq!(rect.height, 20); // 高さを確認
     }
 
     // TODO: このテストでは負の横幅を持った長方形を作成しようとした時にパニックを起こすかどうか確認しましょう。
     #[test]
+    #[should_panic]
     fn negative_width() {
         let _rect = Rectangle::new(-10, 10);
     }
 
     // TODO: このテストでは負の高さを持った長方形を作成しようとした時にパニックを起こすかどうか確認しましょう。
     #[test]
+    #[should_panic]
     fn negative_height() {
         let _rect = Rectangle::new(10, -10);
     }
