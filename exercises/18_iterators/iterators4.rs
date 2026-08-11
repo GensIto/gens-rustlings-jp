@@ -1,10 +1,16 @@
 fn factorial(num: u64) -> u64 {
+    // Range（start..end） RangeInclusive（start..=end）
+    // https://zenn.dev/navyshunta/articles/cfbbd466c66310
+    // https://zenn.dev/ha_maya0104/articles/6cb18e99c5edbd
+    // https://zenn.dev/superneko160/books/85a97b178d9f02/viewer/24037f
+    let num_range = 1..=num;
+    num_range.product()
     // TODO: 以下のような階乗を実行する関数`num`を完成させてください。
     // `1 * 2 * 3 * … * num`。
     // https://ja.wikipedia.org/wiki/%E9%9A%8E%E4%B9%97
     //
     // 以下の方法は禁止です:
-    // - 早期にreturnを使う (明示的にreturnを使う) 
+    // - 早期にreturnを使う (明示的にreturnを使う)
     // 以下の方法はできるだけ使わないでください:
     // - ループ (for/while)
     // - 変数を追加する
