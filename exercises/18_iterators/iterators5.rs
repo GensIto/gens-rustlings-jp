@@ -25,8 +25,8 @@ fn count_for(map: &HashMap<String, Progress>, value: Progress) -> usize {
 
 // TODO: `for`ループの代わりにイテレータによって`count_for`の機能を移植してください。
 fn count_iterator(map: &HashMap<String, Progress>, value: Progress) -> usize {
-    // `map`は`String`のキーや`Progress`型の値を持つ。
-    // map = { "variables1": Complete, "from_str": None, … }
+    // map.values().filter(|v| **v == value).count()
+    map.iter().filter(|(_, v)| **v == value).count()
 }
 
 fn count_collection_for(collection: &[HashMap<String, Progress>], value: Progress) -> usize {
@@ -43,9 +43,22 @@ fn count_collection_for(collection: &[HashMap<String, Progress>], value: Progres
 
 // TODO: `for`ループの代わりにイテレータによって`count_collection_for`の機能を実装してください。
 fn count_collection_iterator(collection: &[HashMap<String, Progress>], value: Progress) -> usize {
-    // `collection` はスライスのハッシュマップです。
-    // collection = [{ "variables1": Complete, "from_str": None, … },
-    //               { "variables2": Complete, … }, … ]
+    // collection
+    //     .iter()
+    //     .flat_map(HashMap::values)
+    //     .filter(|val| **val == value)
+    //     .count()
+
+    // collection
+    //     .iter()
+    //     .map(|map| map.values().filter(|v| **v == value).count())
+    //     .sum()
+
+    collection
+        .iter()
+        .flatten()
+        .filter(|(_, v)| **v == value)
+        .count()
 }
 
 fn main() {
