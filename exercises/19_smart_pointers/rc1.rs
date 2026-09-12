@@ -1,6 +1,9 @@
 // このエクササイズでは`Rc<T>`型によって複数の所有者の概念を表現したい。
 // 以下のコードは太陽系のモデルで、`Sun`型と複数の惑星が存在します。
 // 惑星は太陽の所有権を持っており、太陽の周りを回転します。
+// https://doc.rust-jp.rs/book-ja/ch15-04-rc.html
+// https://zenn.dev/fast/articles/989065f459b99b
+// https://zenn.dev/keisuke333/articles/f014baaa53cfe7
 
 use std::rc::Rc;
 
@@ -60,17 +63,17 @@ mod tests {
         jupiter.details();
 
         // TODO
-        let saturn = Planet::Saturn(Rc::new(Sun));
+        let saturn = Planet::Saturn(Rc::clone(&sun));
         println!("reference count = {}", Rc::strong_count(&sun)); // 7 references
         saturn.details();
 
         // TODO
-        let uranus = Planet::Uranus(Rc::new(Sun));
+        let uranus = Planet::Uranus(Rc::clone(&sun));
         println!("reference count = {}", Rc::strong_count(&sun)); // 8 references
         uranus.details();
 
         // TODO
-        let neptune = Planet::Neptune(Rc::new(Sun));
+        let neptune = Planet::Neptune(Rc::clone(&sun));
         println!("reference count = {}", Rc::strong_count(&sun)); // 9 references
         neptune.details();
 
@@ -92,12 +95,15 @@ mod tests {
         println!("reference count = {}", Rc::strong_count(&sun)); // 4 references
 
         // TODO
+        drop(earth);
         println!("reference count = {}", Rc::strong_count(&sun)); // 3 references
 
         // TODO
+        drop(venus);
         println!("reference count = {}", Rc::strong_count(&sun)); // 2 references
 
         // TODO
+        drop(mercury);
         println!("reference count = {}", Rc::strong_count(&sun)); // 1 reference
 
         assert_eq!(Rc::strong_count(&sun), 1);
